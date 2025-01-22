@@ -3,6 +3,7 @@
 }
 .header{
  display: flex;
+ border: 1px solid blue;
 }
 ul {
     display: flex;
@@ -10,4 +11,32 @@ ul {
 }
 ul  > li {
     margin : 20px; 
+}
+.headerLogo{
+    height: 100px;
+    width: 100px;
+}
+
+.card{
+    height: 200px; 
+    width: 150px;
+    background-color: lightgray;
+    margin: 10px;
+}
+.card:hover{
+    border: 1px solid green;
+    cursor: pointer; 
+}
+.cardImage{
+    width: 140px; 
+    height: 150px; 
+    padding: 5px;
+}
+.body{
+    display: flex;
+}
+.cardContent{
+    font-weight: bold;
+    margin: 3px;
+
 }
