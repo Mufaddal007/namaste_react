@@ -1,29 +1,66 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// React Element 
-const num = 100000000; 
-const  heading = <h1> {num} Hello world </h1> ; 
 
 
-// React component 
-const HeadingComponent = () => {
-        
-        return  (<div>
-            {heading} 
-            {Title()}
-            <Title />
-            <h1> functional component </h1>; 
-        </div> )
+const reactRoot = ReactDOM.createRoot(document.getElementById("root"));
+
+const MenuBar  = () => {
+    return (
+        <div className="MenuBar">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Cart</li>
+            </ul>
+        </div>
+    )
 }
-const root = ReactDOM.createRoot(document.getElementById("root")); 
-
-const Title = () => {
-
-    return <h1>
-        Namaste react using Jsx title
-    </h1>
+const HeaderComponent = () => {
+    return (
+        <div className="header">
+            <img alt="headerLogo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIW8jF2TNHR77VaecIBawILQL21N9kgldZbg&s" />
+            <MenuBar />
+        </div>
+    )
 }
 
-// Rending a component inside html
-root.render(<HeadingComponent />); 
+
+const FooterComponent = () => {
+    return (
+        <div className="footer">
+            This is footer
+        </div>
+    )
+}
+
+const CardComponent = () => {
+    return (
+        <div className="card">
+            Meghana Foods
+        </div>
+    )
+}
+
+const BodyComponent = () => {
+    return (
+        <div className="body">
+           <CardComponent  />
+        </div>
+    )
+}
+
+
+const ApplicaitonLayout  = ()  => {
+        return (
+            <div className="applicationLayout">
+                <HeaderComponent />
+                <BodyComponent />
+                <FooterComponent />
+            </div>
+        )
+}
+
+
+
+reactRoot.render(<ApplicaitonLayout />); 
