@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import HeaderComponent from "./components/header";
+import HeaderComponent from "./components/Header";
 import FooterComponent from "./components/Footer";
 import BodyComponent from "./components/body";
 
