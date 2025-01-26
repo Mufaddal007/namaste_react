@@ -6,8 +6,10 @@ import Shimmer from "./Shimmer";
 
 
 const BodyComponent = () => {
-    let [resListFiltered, setresListFiltered] = useState([]); 
-    
+    let [resListFiltered, setresListFiltered] = useState(resList); 
+    let [searchInput, setSearchInput] = useState("")
+
+
     useEffect(() => {
         fetchData()
     }, [] )
@@ -20,33 +22,41 @@ const BodyComponent = () => {
         const temp = await data.json(); 
         console.log('temp ', temp) ;
         //console.log(temp.data.cards[2].card.card.gridElements.infoWithStyle.restaurants)
-        setresListFiltered(temp.data.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+       // setresListFiltered(temp.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
 
 
-    if(resListFiltered.length == 0 ) {
-        return (
-            <div>
-                <Shimmer />
-            </div>
-        )
-    }
+    // if(resListFiltered.length == 0 ) {
+    //     return (
+    //         <div>
+    //             <Shimmer />
+    //         </div>
+    //     )
+    // }
     console.log(resListFiltered) 
     return (
         <div className="body">
-            <button className="btn" onClick={
+            <button onClick={
                 () => {
                     setresListFiltered(resList.filter((resObj)=> {
                         return (resObj.info.avgRating > 4)
                     }))
                 }
-            }>Filer Restaurents</button>
+            }>Top Rated Restaurants</button>
+            <input type="text"  value={searchInput} onChange={(e) => {
+                setSearchInput(e.target.value)
+            }} />
+            <button onClick={()=>{
+                setresListFiltered(resList.filter((restaurantObj)=> restaurantObj.info.name.includes(searchInput))); 
+            }}>Search</button>
+            <div className="cardContainer">
             {
 
             resListFiltered.map( resData => {
                 return <CardComponent key={resData.info.id} resData = {resData} />         
             })
         }
+        </div>
           
         </div>
     )

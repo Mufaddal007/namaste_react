@@ -32,9 +32,6 @@ ul  > li {
     height: 150px; 
     padding: 5px;
 }
-.body{
-    display: flex;
-}
 .cardContent{
     font-weight: bold;
     margin: 3px;
@@ -55,4 +52,7 @@ ul  > li {
     width: 200px; 
     background-color: #f0f0f0;
     margin: 5px; 
+}
+.cardContainer{
+    display: flex; 
 }
