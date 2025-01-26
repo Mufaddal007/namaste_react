@@ -56,3 +56,6 @@ ul  > li {
 .cardContainer{
     display: flex; 
 }
+.body{
+    margin:5px; 
+}

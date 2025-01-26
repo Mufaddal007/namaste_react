@@ -10,9 +10,10 @@ const BodyComponent = () => {
     let [searchInput, setSearchInput] = useState("")
 
 
+
     useEffect(() => {
         fetchData()
-    }, [] )
+    }, [searchInput] )
 
     let fetchData =  async ()=> {
         const data = await fetch(
