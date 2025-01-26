@@ -47,7 +47,7 @@ const BodyComponent = () => {
                 setSearchInput(e.target.value)
             }} />
             <button onClick={()=>{
-                setresListFiltered(resList.filter((restaurantObj)=> restaurantObj.info.name.includes(searchInput))); 
+                setresListFiltered(resList.filter((restaurantObj)=> restaurantObj.info.name.toLowerCase().includes(searchInput.toLocaleLowerCase()))); 
             }}>Search</button>
             <div className="cardContainer">
             {
