@@ -59,3 +59,9 @@ ul  > li {
 .body{
     margin:5px; 
 }
+
+.footer{
+    border: 1px solid blue;
+    height: 30px; 
+    width: 100%; 
+}

@@ -7,6 +7,7 @@ import {createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Error from "./components/Error"; 
+import Restaurant from "./components/Restaurant";
 
 const reactRoot = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -34,7 +35,9 @@ const routerConfig = createBrowserRouter([
         errorElement: <Error />, 
         children : [{path:"/", element: <BodyComponent></BodyComponent>}, 
             {path:"/contact", element: <Contact></Contact>}, 
-            {path:"/about", element: <About />}
+            {path:"/about", element: <About />},
+            {path: "/restaurant/:resId", element: <Restaurant />}
+
         ] 
     },
         
