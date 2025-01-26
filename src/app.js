@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Children } from "react";
 import ReactDOM from "react-dom/client";
 import HeaderComponent from "./components/Header";
 import FooterComponent from "./components/Footer";
 import BodyComponent from "./components/body";
-import {createBrowserRouter, Route, RouterProvider } from "react-router"; 
+import {createBrowserRouter, RouterProvider, Outlet } from "react-router"; 
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Error from "./components/Error"; 
@@ -16,7 +16,7 @@ const ApplicaitonLayout  = ()  => {
     return (
         <div className="applicationLayout">
             <HeaderComponent />
-            <BodyComponent />
+            <Outlet />
             <FooterComponent />
         </div>
     )
@@ -28,7 +28,16 @@ const ApplicaitonLayout  = ()  => {
 
 
 const routerConfig = createBrowserRouter([
-    {path:"/", element: <ApplicaitonLayout />, errorElement: <Error />}, 
+    {   
+        path:"/", 
+        element: <ApplicaitonLayout />, 
+        errorElement: <Error />, 
+        children : [{path:"/", element: <BodyComponent></BodyComponent>}, 
+            {path:"/contact", element: <Contact></Contact>}, 
+            {path:"/about", element: <About />}
+        ] 
+    },
+        
     {path:"/about", element: <About />}, 
     {path:"/contact", element: <Contact></Contact>}
 ])

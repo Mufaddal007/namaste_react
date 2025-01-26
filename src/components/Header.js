@@ -1,11 +1,14 @@
 import {useState} from "react";
+import {Link } from "react-router"; 
+
 const MenuBar  = () => {
     let [buttonTitle, setButtonTitle] = useState("login");
     return (
         <div className="MenuBar">
             <ul>
-                <li>Home</li>
-                <li>About</li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/contact">Contact us</Link></li>
+                <li><Link to="/about">About</Link></li>
                 <li>Cart</li>
                 <button onClick={
                     ()=> {
