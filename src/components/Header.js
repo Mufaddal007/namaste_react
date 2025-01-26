@@ -1,10 +1,17 @@
+import {useState} from "react";
 const MenuBar  = () => {
+    let [buttonTitle, setButtonTitle] = useState("login");
     return (
         <div className="MenuBar">
             <ul>
                 <li>Home</li>
                 <li>About</li>
                 <li>Cart</li>
+                <button onClick={
+                    ()=> {
+                         setButtonTitle("logout")
+                    }
+                }>{buttonTitle}</button>
             </ul>
         </div>
     )
