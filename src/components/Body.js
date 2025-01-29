@@ -28,7 +28,7 @@ const BodyComponent = () => {
     }
 
 
-    if(resListFiltered.length == 0 ) {
+    if( true ) {
         return (
             <div>
                 <Shimmer />
