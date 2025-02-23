@@ -5,8 +5,8 @@ const CardComponent = (props) => {
     const {info}  = resData;  
     const {name, cloudinaryImageId, avgRating} = info; 
     return (
-        <div className="card">
-            <img className="cardImage" src={imgStaticUrl+cloudinaryImageId} />
+        <div className="bg-gray-100 hover: bg-gray-300">
+            <img className="w-30" src={imgStaticUrl+cloudinaryImageId} />
             <span className="cardContent">{name}</span>
             <span  className="cardContent">{avgRating}</span>
         </div>

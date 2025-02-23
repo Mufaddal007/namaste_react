@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React, { Children, useState } from "react";
 import ReactDOM from "react-dom/client";
 import HeaderComponent from "./components/Header";
 import FooterComponent from "./components/Footer";
@@ -8,17 +8,21 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import Error from "./components/Error"; 
 import Restaurant from "./components/Restaurant";
+import UserContext from "./Utils/UserContext";
 
 const reactRoot = ReactDOM.createRoot(document.getElementById("root"));
 
 
 
 const ApplicaitonLayout  = ()  => {
+    const [userName, setUserName] = useState("Mufaddal Darbar"); 
     return (
         <div className="applicationLayout">
-            <HeaderComponent />
-            <Outlet />
-            <FooterComponent />
+            <UserContext.Provider value={{loggedInUser: userName, setUserName}}>
+                <HeaderComponent />
+                <Outlet />
+                <FooterComponent />
+            </UserContext.Provider>
         </div>
     )
 }
